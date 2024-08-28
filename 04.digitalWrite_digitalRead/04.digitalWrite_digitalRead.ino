@@ -1,6 +1,5 @@
 /*
   Author: Princy Dumais - 19/08/24
-  woah story of under
   Learning Intention:
   The students will learn how to wire a pull-up and pull-down switch and configure PINs for
   digital input and read binary data from those PINs.
