@@ -20,6 +20,26 @@
     https://www.tinkercad.com/things/drNDsMxGMIY?sharecode=D6x4_xTTRl_zGs7B-XGqfbQhG_xgjj3TVS_c-GNTK-c
     https://github.com/TempeHS/TempeHS_Ardunio_Bootcamp/blob/main/07.pulseWidthModulation/Bootcamp-PWMOutput.png
 */
+unsigned static int gLED = 11;
+unsigned static int rLED = 9;
+unsigned static int bLED = 10;
+
+void setup() 
+{
+  pinMode(gLED, OUTPUT);
+  pinMode(rLED, OUTPUT);
+  pinMode(bLED, OUTPUT);
+}
+
+void loop() {
+  analogWrite(gLED, 150);
+  analogWrite(rLED, 0);
+  analogWrite(bLED, 255);
+}
+
+
+
+/*
 int ledPin = 3;
 bool readPin;
 
@@ -37,3 +57,4 @@ val = val/4;
 
   analogWrite(ledPin, val);
 }
+*/
