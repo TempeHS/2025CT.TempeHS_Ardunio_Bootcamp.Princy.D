@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Princy Dumais - 05/09/24
 
   Learning Intention:
   The students understand loop logic and apply it to a range of control structures.
@@ -34,12 +34,48 @@
   Schematic: 
     
 */
+#define LEDpin 3
+#define BTNpin 4
 
-void setup() {
+void setup() 
+{
+  pinMode(BTNpin, INPUT);
+  pinMode(LEDpin, OUTPUT);
+  Serial.begin(9600);
   
 }
 
-void loop() {
-      
-}
+void loop() 
+{
+  do  {
+    digitalWrite(LEDpin, HIGH);
+    Serial.println("Looping");
+  } 
+  while (digitalRead(BTNpin) < 1);
 
+  digitalWrite(LEDpin, LOW);
+  Serial.println("Loop is skipped");
+}
+      
+
+/*
+  WHILE LOOP:
+  while(digitalRead(BTNpin) > 0) {
+    digitalWrite(LEDpin, HIGH);
+    Serial.println("looping");
+  }
+  digitalWrite(LEDpin, LOW);
+  Serial.println("Loop is skipped");
+
+
+
+  static unsigned int LEDpin = 3
+void setup()
+  pinMode(LEDpin, OUTPUT);
+  for (int i = -255; i < 255; i++)
+  {
+    unsigned val = il
+    analogWrite(LEDpin,val);
+    delay (50)
+  }
+*/
