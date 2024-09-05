@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Princy Dumais - 05/09/2024
 
   Learning Intention:
   The students understand how time is used in microcontrollers and best practices
@@ -17,13 +17,26 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Bootcamp/blob/main/09.workingWithTime/Bootcamp-workingWithTime.png
 */
 
+static unsigned int blueLED = 6;
+static unsigned int greenLED = 2;
+unsigned int blueLEDState = LOW;
+unsigned int greenLEDState = LOW;
 
+// Generally, you should use "unsigned long" for variables that hold time
+// The value will quickly become too large for an int to store
+unsigned long blueLEdDPreviousMillis = 0;
+unsigned long greenLEdDPreviousMillis = 0;
+
+// uIe a long so you can mathematically compare with the variable previous Millis without conversion
+const unsigned long blueLEDinterval = 2000;
+const unsigned long greenLEDinterval = 9000;
 void setup() {
-  
+  Serial.begin(9600);
 }
 
 
 void loop() {
+  Serial.print("blueLED");
   
 }
 
