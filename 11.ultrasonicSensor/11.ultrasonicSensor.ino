@@ -31,6 +31,7 @@ Ultrasonic barotrauma(5);
 unsigned static int servoPin = 7;
 unsigned static int potpin = A2;
 int LED = 2;
+int distance; 
 unsigned long LEDPreviousMillis = 0;
 const unsigned long LEDinterval = 2000;
 
@@ -42,16 +43,38 @@ void setup() {
 
 }
 
+
 void loop() {
- 
-do {
-  digitalWrite(LED, HIGH);
+
+ if (analogRead(5) <= 10 )
+ Serial.println (5)
+ digitalWrite (LED, HIGH);
+ {
+//  digitalWrite(LED, HIGH);
+// }
+
+ Serial.println(barotrauma.distanceRead());
+
+//   int val = analogRead(potpin);
+//  val = map(val, 1023, 0 , 180 , 0);
+//   myservo.write(val);
 }
- while analogRead()
+}
+
+
+// READ THE VALUE OF THE ULTRASOUND 
+
+
+/*
+{
+  Serial.println(analogRead(A3));
+if (unsigned long analogRead(5)) == 1;
+digitalWrite (LED, HIGH);
  
  Serial.println(barotrauma.distanceRead());
- 
+
   int val = analogRead(potpin);
  val = map(val, 1023, 0 , 180 , 0);
   myservo.write(val);
 }
+*/
