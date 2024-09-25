@@ -23,6 +23,55 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Bootcamp/blob/main/11.ultrasonicSensor/Bootcamp-ultrasonicSensor.png
 */
 
+
+#include "Ultrasonic.h"
+
+/*
+ * Pass as a parameter the trigger and echo pin, respectively,
+ * or only the signal pin (for sensors 3 pins), like:
+ * Ultrasonic ultrasonic(13);
+ */
+Ultrasonic ultrasonic(5);
+int distance;
+int ledPin = 6;
+bool readPin;
+bool writeValue;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Pass INC as a parameter to get the distance in inches
+  distance = ultrasonic.read();
+  
+  Serial.print("Distance in CM: ");
+  Serial.println(distance);
+  delay(1000);
+
+  if (distance <= 10)
+  {
+    digitalWrite(ledPin, writeValue);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #include "Ultrasonic.h"
 #include <Servo.h>
 
@@ -34,6 +83,7 @@ int LED = 2;
 unsigned long LEDPreviousMillis = 0;
 const unsigned long LEDinterval = 2000;
 unsigned int LEDState = LOW;
+int distance;
 
 
 
@@ -62,6 +112,7 @@ digitalWrite(LED, HIGH);
 
  Serial.println(Sensor.distanceRead());
 
+
 //   int val = analogRead(potpin);
 //  val = map(val, 1023, 0 , 180 , 0);
 //   myservo.write(val);
@@ -72,7 +123,7 @@ digitalWrite(LED, HIGH);
 // READ THE VALUE OF THE ULTRASOUND 
 
 
-/*
+
 {
   Serial.println(analogRead(A3));
 if (unsigned long analogRead(5)) == 1;

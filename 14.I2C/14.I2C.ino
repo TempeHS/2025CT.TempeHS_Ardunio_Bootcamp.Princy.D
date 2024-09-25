@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Princy Dumais - 25/09/2024
   Learning Intention:
   The students will learn to use the I2C communication protocol to send and receive
   data with 2IC sensors and actuators
@@ -25,13 +25,38 @@
     Temperature & Humidity: https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/TempeHS_Sensor_Catalogue/Sensor%20Kit/Temp_and_Humid_Sensor/Temp_and_Humid_Sensor.ino
     Air Pressure Sensor: https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/TempeHS_Sensor_Catalogue/Sensor%20Kit/Air_Pressure_Sensor/Air_Pressure_Sensor.ino
 */
+#include "Arduino_SensorKit.h"
 
-#include <Wire.h>
-
-void setup() {
-
+unsigned int x = 60;
+unsigned int y = 35;
+ 
+void setup()
+{
+  Oled.begin();
+  Oled.setFlipMode(true);
+  Serial.begin(9600);
+  Accelerometer.begin();
 }
-
-void loop() {
-
+ 
+void loop()
+{
+ while (!gameOver())
+ {
+    Oled.setFont(u8x8_font_chroma48medium8_r);   // choose a suitable font
+    Oled.setCursor(x, y);
+    Oled.print("O");    // write something to the internal memory
+    delay(100);
+   
+ 
+  Serial.print("x:");
+  Serial.print(Accelerometer.readX());
+  Serial.print("  ");
+  Serial.print("y:");
+  Serial.print(Accelerometer.readY());        
+  Serial.print("  ");
+  Serial.print("z:");
+  Serial.println(Accelerometer.readZ());
+ 
+  delay(500);
+ }
 }
