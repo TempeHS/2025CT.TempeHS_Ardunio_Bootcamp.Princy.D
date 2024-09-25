@@ -27,39 +27,46 @@
 #include <Servo.h>
 
 Servo myservo;
-Ultrasonic barotrauma(5);
+Ultrasonic Sensor(5);
 unsigned static int servoPin = 7;
 unsigned static int potpin = A2;
 int LED = 2;
-int distance; 
 unsigned long LEDPreviousMillis = 0;
 const unsigned long LEDinterval = 2000;
+unsigned int LEDState = LOW;
+
 
 
 void setup() {
   myservo.attach(servoPin);
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
+  
 
 }
 
 
 void loop() {
+unsigned long currentMillis = millis();
+int val = Sensor.distanceRead();
 
- if (analogRead(5) <= 10 )
- Serial.println (5)
- digitalWrite (LED, HIGH);
- {
+{
+ if (Sensor.distanceRead() <= 10 );
+digitalWrite(LED, HIGH);
+}
+
+
+
 //  digitalWrite(LED, HIGH);
 // }
 
- Serial.println(barotrauma.distanceRead());
+ Serial.println(Sensor.distanceRead());
 
 //   int val = analogRead(potpin);
 //  val = map(val, 1023, 0 , 180 , 0);
 //   myservo.write(val);
 }
-}
+
 
 
 // READ THE VALUE OF THE ULTRASOUND 
